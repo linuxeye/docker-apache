@@ -39,7 +39,7 @@ RUN set -eux \
 		echo "LoadModule expires_module modules/mod_expires.so"; \
 		\
 		echo "Include conf/extra/httpd-default.conf"; \
-		echo "IncludeOptional /etc/httpd-custom.d/*.conf"; \
+		echo "IncludeOptional /etc/httpd/custom.d/*.conf"; \
 		echo "IncludeOptional /etc/httpd/conf.d/*.conf"; \
 		echo "IncludeOptional /etc/httpd/vhost.d/*.conf"; \
 		\
