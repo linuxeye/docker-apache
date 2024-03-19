@@ -35,6 +35,8 @@ RUN set -eux \
 		echo "LoadModule xml2enc_module modules/mod_xml2enc.so"; \
 		echo "LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so"; \
 		echo "LoadModule rewrite_module modules/mod_rewrite.so"; \
+		echo "LoadModule deflate_module modules/mod_deflate.so"; \
+		echo "LoadModule expires_module modules/mod_expires.so"; \
 		\
 		echo "Include conf/extra/httpd-default.conf"; \
 		echo "IncludeOptional /etc/httpd-custom.d/*.conf"; \
@@ -67,6 +69,21 @@ RUN set -eux \
 		\
 		# https://github.com/cytopia/devilbox/issues/862
 		echo "Mutex sem"; \
+		\
+                echo "<IfModule mod_headers.c>"; \
+                echo "  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml text/javascript"; \
+                echo "  <FilesMatch \"\\.(js|css|html|htm|png|jpg|swf|pdf|shtml|xml|flv|gif|ico|jpeg)\\$\">"; \
+                echo "    RequestHeader edit \"If-None-Match\" \"^(.*)-gzip(.*)\$\" \"\$1\$2\""; \
+                echo "    Header edit \"ETag\" \"^(.*)-gzip(.*)\$\" \"\$1\$2\""; \
+                echo "  </FilesMatch>"; \
+                echo "  DeflateCompressionLevel 6"; \
+                echo "  SetOutputFilter DEFLATE"; \
+                echo "</IfModule>"; \
+		\
+                echo "ProtocolsHonorOrder On"; \
+                echo "PidFile /var/run/httpd.pid"; \
+                echo "ServerTokens ProductOnly"; \
+                echo "ServerSignature Off"; \
 		\
 	) >> /usr/local/apache2/conf/httpd.conf
 
