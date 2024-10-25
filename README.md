@@ -95,4 +95,4 @@ In case you seek help, go and visit the community pages.
 **Findme:**
 **🐋** [bypanel](https://hub.docker.com/r/bypanel/)
 
-Thanks **[@fabiocicerchia](https://github.com/fabiocicerchia)** **[@cytopia](https://github.com/cytopia)**
+Thanks **[@fabiocicerchia](https://github.com/fabiocicerchia)**  **[@cytopia](https://github.com/cytopia)**
