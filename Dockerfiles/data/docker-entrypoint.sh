@@ -25,15 +25,6 @@ MAIN_DOCROOT_BASE="/var/www/default"
 MASS_DOCROOT_BASE="/shared/httpd"
 
 ###
-### OpenSSL Certificate Authority file to generate
-###
-### If the /ca directory is mounted and those files already exist
-### a new ca will not be generated, but reused.
-###
-CA_KEY_FILE=/ca/devilbox-ca.key
-CA_CRT_FILE=/ca/devilbox-ca.crt
-
-###
 ### Path to scripts to source
 ###
 ENTRYPOINT_DIR="/docker-entrypoint.d"              # All entrypoint scripts
