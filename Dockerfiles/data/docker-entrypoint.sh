@@ -139,6 +139,11 @@ set_gid "${NEW_GID}" "${MY_USER}" "${MY_GROUP}"
 ###
 set_timezone "${TIMEZONE}"
 
+###
+### Fix directory/file permissions (in case it is mounted)
+###
+fix_perm "/var/log/httpd" "0"
+
 # -------------------------------------------------------------------------------------------------
 # MAIN ENTRYPOINT
 # -------------------------------------------------------------------------------------------------
