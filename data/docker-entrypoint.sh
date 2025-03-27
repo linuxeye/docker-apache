@@ -15,8 +15,6 @@ set -o pipefail
 ### The following env variables are set inside the Dockerfiles
 ###   MY_USER
 ###   MY_GROUP
-###   HTTPD_START
-###   HTTPD_RELOAD
 
 ###
 ### Path to scripts to source
@@ -78,8 +76,8 @@ log "info" "Environment Variables (set/default)"
 log "info" "-------------------------------------------------------------------------"
 
 log "info" "Variables: General:"
-env_var_export "NEW_UID"
-env_var_export "NEW_GID"
+env_var_export "NEW_UID" 1000
+env_var_export "NEW_GID" 1000
 env_var_export "TIMEZONE" "UTC"
 env_var_export "DOCKER_LOGS" "1"
 
