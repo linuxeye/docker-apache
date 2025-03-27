@@ -19,29 +19,9 @@ set -o pipefail
 ###   HTTPD_RELOAD
 
 ###
-### Base path for main (default) document root
-###
-MAIN_DOCROOT_BASE="/var/www/default"
-MASS_DOCROOT_BASE="/shared/httpd"
-
-###
 ### Path to scripts to source
 ###
 ENTRYPOINT_DIR="/docker-entrypoint.d"              # All entrypoint scripts
-VHOSTGEN_TEMPLATE_DIR="/etc/vhost-gen/templates"   # vhost-gen default templates
-VHOSTGEN_CUST_TEMPLATE_DIR="/etc/vhost-gen.d"      # vhost-gen custom templates (must be mounted to add)
-
-###
-### Defailt aliases copied from previous images, just for the record
-###
-#MAIN_VHOST_ALIASES_ALLOW='/devilbox-api/:/var/www/default/api, /vhost.d/:/etc/httpd'
-#MASS_VHOST_ALIASES_ALLOW='/devilbox-api/:/var/www/default/api:http(s)?://(.*)$'
-
-###
-### Wait this many seconds to start watcherd after httpd has been started
-###
-WATCHERD_STARTUP_DELAY="3"
-
 
 
 ###################################################################################################
@@ -117,7 +97,6 @@ env_var_validate "NEW_UID"
 env_var_validate "NEW_GID"
 env_var_validate "TIMEZONE"
 env_var_validate "DOCKER_LOGS"
-
 
 
 # -------------------------------------------------------------------------------------------------
