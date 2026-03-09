@@ -92,6 +92,7 @@ RUN set -eux \
 ###
 ENV MY_USER=www-data
 ENV MY_GROUP=www-data
+ENV HTTPD_START="httpd-foreground"
 ENV HTTPD_VERSION="httpd -V 2>&1 | head -1 | awk '{print \$3}'"
 
 
