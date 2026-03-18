@@ -4,11 +4,7 @@ FROM httpd:2.4-alpine
 ###
 ### Build arguments
 ###
-ENV RUN_DEPS \
-	bash \
-	openssl \
-	shadow \
-	tzdata
+ENV RUN_DEPS="bash openssl shadow tzdata"
 
 
 ### Install required packages
